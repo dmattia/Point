@@ -1,0 +1,40 @@
+body {
+	font-family: "Roboto", "open sans", arial, sans-serif;
+	font-weight: 200;
+}
+
+div.nav-wrapper a {
+	color: #000;
+}
+
+.thin {
+	font-weight: 200;
+}
+
+.thick {
+	font-weight: 400;
+}
+
+p {
+	font-weight: 300;
+}
+
+label {
+	color: #202020;
+}
+
+a:link {
+	color: #FFF;
+}
+
+a:visited {
+	color: #FFF;
+}
+
+a:hover {
+	color: #FFF;
+}
+
+a:active {
+	color: #FFF;
+}

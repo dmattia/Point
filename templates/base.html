@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Application to find worldwide soccer talent">
+    <meta name="author" content="David Mattia">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Condensed' rel='stylesheet' type='text/css'>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block head %}{% endblock %}
+    {% block title %}<title>Point</title>{% endblock %}
+</head>
+
+<body class="{% block body_color %}blue{% endblock %}" style="color: {% block body_font_color %}#FFF;{% endblock %}">
+    <!-- Navigation -->
+    <nav class="white">
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo center">Point</a>
+        </div>
+    </nav>
+    {% block menu %}
+    {% endblock %}
+
+    <!-- Main Toolbar -->
+	 {% block tool_title%}{%endblock%}
+    <div class="container">
+    <!-- Main Content -->
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+</body>
+</html>
+

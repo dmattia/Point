@@ -1,5 +1,17 @@
-<html>
-<body>
-	{{message}}
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block body_font_color %}
+#202020;
+{% endblock %}
+
+{% block body_color %}
+grey lighten-3
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+	<h3 class="col s12">{{message}}</h3>
+</div>
+
+{% endblock %}
