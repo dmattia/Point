@@ -19,3 +19,8 @@ class PlayerCreationForm(UserCreationForm):
 		if commit:
 			user.save()
 		return user
+
+class LogInForm(forms.ModelForm):
+	class Meta:
+		model = UserProfile
+		fields = ('username', 'password')

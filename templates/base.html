@@ -27,6 +27,15 @@
     <nav class="white">
         <div class="nav-wrapper">
             <a href="/" class="brand-logo center">Point</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					{% if user.is_authenticated %}
+					<li><a href="{% url 'home' %}">Home</a></li>
+					<li><a href="{% url 'logout' %}">Log Out</a></li>
+					{% else %}
+					<li><a href="{% url 'login' %}">Log In</a></li>
+					<li><a href="{% url 'register' %}">Register</a></li>
+					{% endif %}
+				</ul>
         </div>
     </nav>
     {% block menu %}

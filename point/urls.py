@@ -4,7 +4,8 @@ from main import views as mainViews
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-	 url(r'^$', mainViews.home),
-    url(r'^login/', mainViews.login, name='login'),
-    url(r'^register/', mainViews.register, name='register'),
+	 url(r'^$', mainViews.home, name='home'),
+    url(r'^accounts/login/', mainViews.login, name='login'),
+    url(r'^accounts/logout/', mainViews.logout, name='logout'),
+    url(r'^accounts/register/', mainViews.register, name='register'),
 ]
