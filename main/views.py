@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from forms import PlayerCreationForm
+from django.http import HttpResponseRedirect
 
 def home(request):
 	params = {

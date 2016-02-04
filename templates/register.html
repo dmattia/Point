@@ -1,11 +1,12 @@
 {% extends "base.html" %}
+{% load material_form %}
 
 {% block content %}
 
 	<h2>Register an account</h2>
-	<form action="/accounts/register/" method="post">
+	<form action="{% url 'register' %}" method="post">
 		{% csrf_token %}
-		{{ registerForm }}
+		{% form form=registerForm %}{% endform %}
 		<button style="margin-top:10px; margin-bottom:20px;" type="submit" name="_submit" class="z-depth-4 waves-effect btn btn-primary btn-lg">
 			Register<i class="material-icons right">send</i>
 		</button>

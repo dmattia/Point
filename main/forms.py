@@ -14,6 +14,8 @@ class PlayerCreationForm(UserCreationForm):
 	def save(self, commit=True):
 		user = super(PlayerCreationForm, self).save(commit=False)
 		user.email = self.cleaned_data['email']
+		user.position = self.cleaned_data['position']
+		user.foot = self.cleaned_data['foot']
 		if commit:
 			user.save()
 		return user
