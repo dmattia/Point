@@ -4,6 +4,7 @@ from forms import PlayerCreationForm, LogInForm, PlayerSearchForm
 from django.http import HttpResponseRedirect
 from django.contrib import auth
 from django.core.urlresolvers import reverse
+from userprofile.models import UserProfile, SkillUpvote
 
 @login_required
 def home(request):
@@ -69,3 +70,17 @@ def register(request):
 			'registerForm': PlayerCreationForm()
 		}
 		return render(request, 'register.html', args)
+
+def profile(request, profile_id):
+	"""
+	Displays a user profile for the user that has id @profile_id
+	Input: @profile_id: The id for a UserProfile
+	Output: A page displaying information about this UserProfile
+	"""
+	user = UserProfile.objects.get(id=profile_id)
+	skills = [skill[1] for skill in SkillUpvote.SKILL_CHOICES]
+	args = {
+		'user': user,
+		'skills': skills,
+	}
+	return render(request, 'profile.html', args)

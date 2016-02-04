@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block body_font_color %}
+#202020;
+{% endblock %}
+
+{% block body_color %}
+blue
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+	<div class="col row s12 card z-depth-4 white blue-text">
+		<h3 class="thin">username: {{ user.user.username }}</h3 class="thin">
+		<h3 class="thin">age: {{ user.age }}</h3 class="thin">
+		<h3 class="thin">height: {{ user.height }} cm</h3 class="thin">
+		<h3 class="thin">position: {{ user.position }}</h3 class="thin">
+		<h3 class="thin">foot: {{ user.foot }}</h3 class="thin">
+	</div>
+	<div class="col s12 card z-depth-2 white">
+	{% for skill in skills %}
+		<h3 class="thin">{{ skill }}</h3>
+	{% endfor %}
+	</div>
+</div>
+
+{% endblock %}

@@ -40,6 +40,28 @@ class UserProfile(User):
 	)
 	position = models.CharField(max_length=1, choices=POSITION_CHOICES, default=FORWARD)
 
+class SkillUpvote(models.Model):
+	"""
+	A model representing a single upvote for a skill between two users
+	Fields:
+		@sender: The person upvoting someone else
+		@recipient: The person that @sender is upvoting
+		@skill: The skill that @sender is upvoting @recipient for
+	"""
+	sender = models.ForeignKey(UserProfile, related_name='sender')
+	recipient = models.ForeignKey(UserProfile, related_name='recipient')
+	# Skill enum
+	DRIBBLING = 'DRB'
+	SPEED = 'SPD'
+	STRENGTH = 'STR'
+	SKILL_CHOICES = (
+		(DRIBBLING, 'Dribbling'),
+		(SPEED, 'Speed'),
+		(STRENGTH, 'Strength'),
+	)
+	skill = models.CharField(max_length=3, choices = SKILL_CHOICES)
+
 User.profile = property(lambda u: UserProfile.objects.get_or_create(user=u)[0])
 
 admin.site.register(UserProfile)
+admin.site.register(SkillUpvote)
