@@ -24,3 +24,11 @@ class LogInForm(forms.ModelForm):
 	class Meta:
 		model = UserProfile
 		fields = ('username', 'password')
+
+class PlayerSearchForm(forms.ModelForm):
+	#position = forms.ChoiceField(choices=UserProfile.POSITION_CHOICES)
+	#foot = forms.ChoiceField(choices=UserProfile.FOOT_CHOICES)
+
+	class Meta:
+		model = UserProfile
+		fields = ('age', 'height', 'foot', 'position',)

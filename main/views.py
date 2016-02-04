@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
-from forms import PlayerCreationForm, LogInForm
+from forms import PlayerCreationForm, LogInForm, PlayerSearchForm
 from django.http import HttpResponseRedirect
 from django.contrib import auth
 from django.core.urlresolvers import reverse
@@ -10,10 +10,10 @@ def home(request):
 	"""
 	The homepage for a logged in user
 	Input: @request: standard django request object
-	Returns: homepage with a hardcoded message
+	Returns: A form to search for players
 	"""
 	params = {
-		'message': 'hello',
+		'form': PlayerSearchForm(),
 	}
 	return render(request, 'home.html', params)
 
