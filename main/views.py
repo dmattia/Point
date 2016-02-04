@@ -37,7 +37,12 @@ def login(request):
 			# TODO: Go to the next parameter of the url instead of
 			# always goint to the home page
 			return HttpResponseRedirect(reverse('home'))
-		# TODO: Add else here for incorrect login
+		else:
+			args = {
+				'message': 'Could not find this username/password pair',
+				'loginForm': LogInForm(),
+			}
+			return render(request, 'login.html', args)
 	args = {
 		'loginForm': LogInForm()
 	}

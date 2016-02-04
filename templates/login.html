@@ -14,6 +14,10 @@
 	</button>
 </form>
 
+{% if message %}
+<h5 class="thin red-text">{{ message }}</h5>
+{% endif %}
+
 <div style="margin-bottom:40px;"></div>
 <a class="btn waves-effect white black-text" href="{% url 'register' %}">Create Account</a>
 
