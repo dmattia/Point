@@ -18,6 +18,26 @@ def home(request):
 	}
 	return render(request, 'home.html', params)
 
+def searchResult(request):
+	"""
+
+	"""
+	if request.method == 'POST':
+		form = PlayerSearchForm(request.POST)
+		age = request.POST['age']	
+		height = request.POST['height']	
+		match = UserProfile.objects.all()
+		#match = UserProfile.objects.all().filter(age=int(age)).filter(height=int(height))
+		args = {
+			'results': match,
+			'age': age,
+			'height': height
+		}
+	else:
+		args['age'] = '12'
+	return render(request, 'searchResult.html', args)
+
+
 def login(request):	
 	"""
 	Attempts to log in a user on a POST request,

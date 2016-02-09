@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load material_form %}
+
+{% block body_font_color %}
+#202020;
+{% endblock %}
+
+{% block body_color %}
+grey lighten-3
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+	{{ age }}
+	{% for result in results.object_list %}
+        <div class="col s12 card blue z-index-2">
+                <div class="card-content white-text">
+                        <h2><a href="" style="color:#FFF;">{{ result.username }}</a></h2>
+                        <p>
+                                Weight: {{ result.username }}<br>
+                                Height: {{ result.username }}<br>
+                        </p>
+                        <!--<div>{{ post.body | striptags }}</div>-->
+                </div>
+                <div class="card-action">
+                        <a href="" class="btn btn-medium waves-effect thick white" style="color:#2196f3;">Read More</a>
+                </div>
+        </div>
+        {% endfor %}
+</div>
+
+{% endblock %}

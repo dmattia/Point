@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^accounts/logout/', mainViews.logout, name='logout'),
     url(r'^accounts/register/', mainViews.register, name='register'),
     url(r'^profile/([0-9]+)/$', mainViews.profile, name='profile'),
+    url(r'^searchResult/$', mainViews.searchResult, name='searchResult'),
 ]
