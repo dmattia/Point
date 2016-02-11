@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from django.contrib import auth
 from django.core.urlresolvers import reverse
 from userprofile.models import UserProfile, SkillUpvote
+from random import randint
 
 @login_required
 def home(request):
@@ -108,8 +109,16 @@ def profile(request, profile_id):
 	"""
 	user = UserProfile.objects.get(id=profile_id)
 	skills = [skill[1] for skill in SkillUpvote.SKILL_CHOICES]
+
+	#skill_counts is temporary to fake skill upvotes
+	skill_counts = []
+	for skill in skills:
+		count = range(randint(1,8))	
+		padding = 9 - len(count)
+		skill_counts.append((skill, count, padding))
+
 	args = {
 		'user': user,
-		'skills': skills,
+		'skill_counts': skill_counts,
 	}
 	return render(request, 'profile.html', args)
