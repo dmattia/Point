@@ -20,18 +20,22 @@ def home(request):
 
 def searchResult(request):
 	"""
-
+	Search Results for the  main player search page
+	Input: @request: standard django request object
+	Returns: A list of players matching the search parameters
+	Important Local Vars:
+		@match: UserProfile objects matching the search criteria
 	"""
 	if request.method == 'POST':
 		form = PlayerSearchForm(request.POST)
-		age = request.POST['age']	
-		height = request.POST['height']	
-		match = UserProfile.objects.all()
-		#match = UserProfile.objects.all().filter(age=int(age)).filter(height=int(height))
+		min_age = request.POST['min_age']	
+		max_age = request.POST['max_age']	
+		min_height = request.POST['min_height']	
+		max_height = request.POST['max_height']	
+
+		match = UserProfile.objects.all().filter(age__gte=int(min_age)).filter(age__lte=int(max_age)).filter(height__gte=int(min_height)).filter(height__lte=int(max_height))
 		args = {
 			'results': match,
-			'age': age,
-			'height': height
 		}
 	else:
 		args['age'] = '12'

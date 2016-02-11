@@ -26,9 +26,11 @@ class LogInForm(forms.ModelForm):
 		fields = ('username', 'password')
 
 class PlayerSearchForm(forms.ModelForm):
-	#position = forms.ChoiceField(choices=UserProfile.POSITION_CHOICES)
-	#foot = forms.ChoiceField(choices=UserProfile.FOOT_CHOICES)
+	min_age = forms.IntegerField()
+	max_age = forms.IntegerField()
+	min_height = forms.IntegerField()
+	max_height = forms.IntegerField()
 
 	class Meta:
 		model = UserProfile
-		fields = ('age', 'height', 'foot', 'position',)
+		fields = ('foot', 'position',)

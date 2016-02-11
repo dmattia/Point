@@ -12,8 +12,7 @@ grey lighten-3
 {% block content %}
 
 <div class="row">
-	{{ age }}
-	{% for result in results.object_list %}
+	{% for result in results %}
         <div class="col s12 card blue z-index-2">
                 <div class="card-content white-text">
                         <h2><a href="" style="color:#FFF;">{{ result.username }}</a></h2>
@@ -21,10 +20,9 @@ grey lighten-3
                                 Weight: {{ result.username }}<br>
                                 Height: {{ result.username }}<br>
                         </p>
-                        <!--<div>{{ post.body | striptags }}</div>-->
                 </div>
                 <div class="card-action">
-                        <a href="" class="btn btn-medium waves-effect thick white" style="color:#2196f3;">Read More</a>
+                        <a href="" class="btn btn-medium waves-effect thick white" style="color:#2196f3;">View Profile</a>
                 </div>
         </div>
         {% endfor %}
