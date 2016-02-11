@@ -1,6 +1,7 @@
 from django import forms
 from userprofile.models import UserProfile
 from django.contrib.auth.forms import UserCreationForm
+from material import Layout, Row
 
 class PlayerCreationForm(UserCreationForm):
 	email = forms.EmailField(required=True)
@@ -30,6 +31,12 @@ class PlayerSearchForm(forms.ModelForm):
 	max_age = forms.IntegerField()
 	min_height = forms.IntegerField()
 	max_height = forms.IntegerField()
+
+	layout = Layout(
+		Row('min_age', 'max_age'),
+		Row('min_height', 'max_height'),
+		'foot', 'position'
+	)
 
 	class Meta:
 		model = UserProfile
