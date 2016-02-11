@@ -6,6 +6,7 @@ from django.contrib import auth
 from django.core.urlresolvers import reverse
 from userprofile.models import UserProfile, SkillUpvote
 from random import randint
+from django import forms
 
 @login_required
 def home(request):
@@ -39,7 +40,9 @@ def searchResult(request):
 			'results': match,
 		}
 	else:
-		args['age'] = '12'
+		args = {
+			'results': UserProfile.objects.all()
+		}
 	return render(request, 'searchResult.html', args)
 
 
@@ -68,8 +71,10 @@ def login(request):
 				'loginForm': LogInForm(),
 			}
 			return render(request, 'login.html', args)
+	form = LogInForm()
+	form.fields['password'].widget = forms.PasswordInput()
 	args = {
-		'loginForm': LogInForm()
+		'loginForm': form
 	}
 	return render(request, 'login.html', args)
 

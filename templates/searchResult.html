@@ -13,19 +13,15 @@ grey lighten-3
 
 <div class="row">
 	{% for result in results %}
-        <div class="col s12 card blue z-index-2">
-                <div class="card-content white-text">
-                        <h2><a href="" style="color:#FFF;">{{ result.username }}</a></h2>
-                        <p>
-                                Weight: {{ result.username }}<br>
-                                Height: {{ result.username }}<br>
-                        </p>
-                </div>
-                <div class="card-action">
-                        <a href="{% url 'profile' result.id %}" class="btn btn-medium waves-effect thick white" style="color:#2196f3;">View Profile</a>
-                </div>
-        </div>
-        {% endfor %}
+		<div class="col s12 row card blue z-index-2 valign-wrapper" style="padding: 20px;">
+			<div class="col s8">
+				<h3 class="white-text valign">{{ result.first_name }} {{ result.last_name }}</h3>
+			</div>
+			<div class="col s4">
+				<a href="{% url 'profile' result.id %}" class="valign btn btn-medium waves-effect thick white" style="color:#2196f3;">View Profile</a>
+			</div>
+		</div>
+	{% endfor %}
 </div>
 
 {% endblock %}
