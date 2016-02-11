@@ -22,7 +22,7 @@ grey lighten-3
                         </p>
                 </div>
                 <div class="card-action">
-                        <a href="" class="btn btn-medium waves-effect thick white" style="color:#2196f3;">View Profile</a>
+                        <a href="{% url 'profile' result.id %}" class="btn btn-medium waves-effect thick white" style="color:#2196f3;">View Profile</a>
                 </div>
         </div>
         {% endfor %}

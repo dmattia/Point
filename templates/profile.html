@@ -18,9 +18,12 @@ blue
 		<h3 class="thin">position: {{ user.position }}</h3 class="thin">
 		<h3 class="thin">foot: {{ user.foot }}</h3 class="thin">
 	</div>
-	<div class="col s12 card z-depth-2 white">
+	<div class="col s12 row card z-depth-2 white">
 	{% for skill in skills %}
-		<h3 class="thin">{{ skill }}</h3>
+		<div class="col s12 row valign-wrapper">
+			<h3 class="thin col s11">{{ skill }}</h3>
+			<button class="btn col s1 waves-effect valign">+</button>
+		</div>
 	{% endfor %}
 	</div>
 </div>
