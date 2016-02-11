@@ -10,7 +10,7 @@ class PlayerCreationForm(UserCreationForm):
 
 	class Meta:
 		model = UserProfile
-		fields = ('username', 'age', 'position', 'height', 'foot')
+		fields = ('username', 'first_name', 'last_name', 'age', 'position', 'height', 'foot')
 
 	def save(self, commit=True):
 		user = super(PlayerCreationForm, self).save(commit=False)

@@ -30,10 +30,10 @@ def searchResult(request):
 	"""
 	if request.method == 'POST':
 		form = PlayerSearchForm(request.POST)
-		min_age = request.POST['min_age']	
-		max_age = request.POST['max_age']	
-		min_height = request.POST['min_height']	
-		max_height = request.POST['max_height']	
+		min_age = request.POST['min_age'] if request.POST['min_age'] else 1
+		max_age = request.POST['max_age'] if request.POST['max_age'] else 300
+		min_height = request.POST['min_height'] if request.POST['min_height'] else 1
+		max_height = request.POST['max_height'] if request.POST['max_height'] else 300
 
 		match = UserProfile.objects.all().filter(age__gte=int(min_age)).filter(age__lte=int(max_age)).filter(height__gte=int(min_height)).filter(height__lte=int(max_height))
 		args = {
